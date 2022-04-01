@@ -16,3 +16,7 @@
 .pallino_active {
     background-color: blue;
 }
+
+.sbarra {
+    text-decoration: line-through;
+}

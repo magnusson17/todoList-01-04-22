@@ -18,8 +18,24 @@
         <div class="container">
             <div class="row">
                 <div class="col d-flex justify-content-center">
-                    <input type="text" placeholder="scrivi">
-                    <button class="btn btn-primary">Salva</button>
+                    <input 
+                    type="text" 
+                    placeholder="scrivi"
+                    v-model="newTodo">
+                    <button class="btn btn-primary" @click="aggiungiTodo()">Salva</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col d-flex justify-content-center">
+                    <ul>
+                        <li v-for="(element, index) in todos">
+                            <p :class=" (element.done) ? 'sbarra' : '' ">{{element.text}}</p>
+                            <i class="fa-solid fa-circle-xnark text-danger" @click="rimuoviTodo(index)">X</i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
