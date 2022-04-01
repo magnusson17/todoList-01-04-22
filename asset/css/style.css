@@ -1,0 +1,18 @@
+.bg_custom {
+    background-color: antiquewhite;
+}
+
+#main-container {
+    height: 100vh;
+}
+
+.pallino {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: black;
+}
+
+.pallino_active {
+    background-color: blue;
+}
