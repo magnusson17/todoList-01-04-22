@@ -29,7 +29,7 @@ var app = new Vue(
                 },
                 {
                     text: "fare benzina",
-                    done: true
+                    done: false
                 },
                 {
                     text: "sistemare la bici",
@@ -44,10 +44,20 @@ var app = new Vue(
                     text: this.newTodo,
                     done: false
                 };
-                this.todos.push(newTodoObj);
+                if (!this.newTodo == '') {
+                    this.todos.push(newTodoObj);
+                    this.newTodo = ""
+                }
             },
             rimuoviTodo: function(todoIndex) {  
                 this.todos.splice(todoIndex, 1);
+            },
+            rimuoviMettiBarra: function(el) {
+                if (el.done == true) {
+                    el.done = false;
+                } else {
+                    el.done = true;
+                }
             }
         }
     }
