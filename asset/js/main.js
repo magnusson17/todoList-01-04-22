@@ -44,7 +44,7 @@ var app = new Vue(
                     text: this.newTodo,
                     done: false
                 };
-                if (!this.newTodo == '') {
+                if (this.newTodo != '') {
                     this.todos.push(newTodoObj);
                     this.newTodo = ""
                 }
