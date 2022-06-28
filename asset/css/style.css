@@ -24,3 +24,7 @@
 .non-sbarra {
     text-decoration: none;
 }
+
+.stop_events {
+    pointer-events: none;
+}

@@ -25,29 +25,52 @@ var app = new Vue(
             todos: [
                 {
                     text: "lista della spesa",
-                    done: false
+                    done: false,
+                    change: false
                 },
                 {
                     text: "fare benzina",
-                    done: false
+                    done: false,
+                    change: false
                 },
                 {
                     text: "sistemare la bici",
-                    done: false
+                    done: false,
+                    change: false
                 },
             ],
             newTodo: "",
+            changeTodo: "",
+            stopEvent: false,
+            //isDisabled: true //:disabled="isDisabled"
         },
         methods: {
             aggiungiTodo: function() {
                 let newTodoObj = {
                     text: this.newTodo,
-                    done: false
+                    done: false,
+                    change: false
                 };
                 if (this.newTodo != '') {
                     this.todos.push(newTodoObj);
                     this.newTodo = ""
                 }
+            },
+            modificaTodo: function(todoIndex) {
+                this.todos[todoIndex].change = true;
+                this.stopEvent = true
+            },
+            confermaModifica: function(todoIndex) {
+                if (this.changeTodo !== '') {
+                    this.todos[todoIndex].text = this.changeTodo;
+                }
+                this.todos[todoIndex].change = false;
+                this.changeTodo = '';
+                this.stopEvent = false
+            },
+            annullaModifica: function(todoIndex) {
+                this.todos[todoIndex].change = false;
+                this.stopEvent = false
             },
             rimuoviTodo: function(todoIndex) {  
                 this.todos.splice(todoIndex, 1);
