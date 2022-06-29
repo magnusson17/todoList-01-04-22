@@ -28,3 +28,7 @@
 .stop_events {
     pointer-events: none;
 }
+
+.hover_li:hover {
+    background: white!important;
+}

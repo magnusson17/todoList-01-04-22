@@ -19,41 +19,41 @@
     <body>
 
         <div id="root">
-            <div class="container d-flex flex-column align-items-center">
+            <div class="container d-flex flex-column align-items-start w-50">
 
                 <h1 class="w-100 text-center">Todo list</h1>
 
-                <div class="row">
+                <div class="row my-2">
                     <div class="col d-flex justify-content-center">
-                        <input type="text" placeholder="scrivi" v-model="newTodo" @keyup.enter="aggiungiTodo()">
-                        <button class="btn btn-primary" @click="aggiungiTodo()">Salva</button>
+                        <input type="text" placeholder="Aggiungi" class="p-2" v-model="newTodo" @keyup.enter="aggiungiTodo()">
+                        <button class="btn btn-primary mx-2" @click="aggiungiTodo()">Salva</button>
                     </div>
                 </div>
 
 
-                <ul class="row flex-column w-50">
-                    <li v-for="(element, index) in todos" class="col d-flex justify-content-between align-items-center">
+                <ul class="row flex-column w-100 m-0 p-0">
+                    <li v-for="(element, index) in todos" class="col d-flex justify-content-between align-items-center my-2 border bg-light hover_li">
                         <p 
                         v-if="!element.change"
                         @click="rimuoviMettiBarra(element)" 
                         :class="(element.done) ? 'sbarra' : 'non-sbarra'"
-                        class="m-2"
+                        class="m-2 py-2 text-break"
                         role="button"
                         >
                             {{ element.text }}
                         </p>
-                        <div v-else action="" class="justify-content-center">
+                        <div v-else action="" class="justify-content-center p-2">
                             <input type="text" :placeholder="`${element.text}`" v-model="changeTodo">
                             <button class="btn btn-primary" @click="confermaModifica(index)">Modifica</button>
                             <button class="btn btn-primary" @click="annullaModifica(index)">Annulla</button>
                         </div>
                         
-                        <div>
-                            <i class="fa-solid fa-pen-to-square" 
+                        <div class="d-flex">
+                            <i class="fa-solid fa-pen-to-square m-1 fs-5" 
                             role="button"
                             @click="modificaTodo(index)"
                             :class="(stopEvent) ? 'stop_events' : '' "></i>
-                            <i class="fa-solid fa-trash text-danger"
+                            <i class="fa-solid fa-trash text-danger m-1 fs-5"
                             role="button"
                             @click="rimuoviTodo(index)"></i>
                         </div>
