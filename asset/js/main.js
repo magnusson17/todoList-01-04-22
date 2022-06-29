@@ -72,8 +72,10 @@ var app = new Vue(
                 this.todos[todoIndex].change = false;
                 this.stopEvent = false
             },
-            rimuoviTodo: function(todoIndex) {  
-                this.todos.splice(todoIndex, 1);
+            rimuoviTodo: function(todoIndex) {
+                if ( confirm('Eliminare?') == true ) {
+                    this.todos.splice(todoIndex, 1);
+                }
             },
             rimuoviMettiBarra: function(el) {
                 if (el.done == true) {
