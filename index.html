@@ -19,13 +19,13 @@
     <body>
 
         <div id="root">
-            <div class="container d-flex flex-column align-items-start w-50">
+            <div class="container d-flex flex-column w-50 py-4">
 
                 <h1 class="w-100 text-center">Todo list</h1>
 
-                <div class="row my-2">
-                    <div class="col d-flex justify-content-center">
-                        <input type="text" placeholder="Aggiungi" class="p-2" v-model="newTodo" @keyup.enter="aggiungiTodo()">
+                <div class="row my-2 w-100">
+                    <div class="col d-flex justify-content-start">
+                        <input type="text" placeholder="Aggiungi" class="p-2 w-50" v-model="newTodo" @keyup.enter="aggiungiTodo()">
                         <button class="btn btn-primary mx-2" @click="aggiungiTodo()">Salva</button>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             {{ element.text }}
                         </p>
                         <div v-else action="" class="justify-content-center p-2">
-                            <input type="text" :placeholder="`${element.text}`" v-model="changeTodo">
+                            <input type="text" :placeholder="`${element.text}`" v-model="changeTodo" class="p-2">
                             <button class="btn btn-primary" @click="confermaModifica(index)">Modifica</button>
                             <button class="btn btn-primary" @click="annullaModifica(index)">Annulla</button>
                         </div>
